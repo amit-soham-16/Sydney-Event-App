@@ -1,0 +1,14 @@
+Schedule the Scraper to Run Every 24 Hours
+On Linux/Mac (Cron Job):
+
+bash
+Copy
+Edit
+crontab -e
+Add this line to schedule daily scraping:
+
+swift
+Copy
+Edit
+0 0 * * * /path/to/venv/bin/python /path/to/scraper/scraper.py
+On Windows (Task Scheduler): Use Task Scheduler to run scraper.py daily at midnight.
