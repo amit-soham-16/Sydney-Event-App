@@ -107,10 +107,7 @@ The Sydney Events App is a web application that automatically scrapes event data
 * Thank you to the open-source libraries and frameworks used in this project: Spring Boot, React, Python, and MySQL.
 
 
-### Notes
-- Update the URL of your repository in the `git clone` commands.
-- The project assumes you have basic knowledge of setting up MySQL, Spring Boot, and React.
-- Customize the `API Endpoints` section to fit your actual backend API if needed.
+
 
 ## Contact
 
