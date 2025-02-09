@@ -1,21 +1,30 @@
-import { Card } from './ui/Card';
-import { Button } from './ui/Button';
-import { useState } from "react";
-import EventModal from "./EventModal";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "./ui/Button";
+import EventModal from "./EventModal"; // Ensure this is correctly imported
 
 const EventCard = ({ event }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <Card className="max-w-sm rounded-2xl shadow-lg p-4">
-        <img src={event.image} alt={event.title} className="rounded-xl h-48 w-full object-cover" />
-        <h3 className="text-xl font-bold mt-4">{event.title}</h3>
-        <p className="text-gray-600">{event.date} | {event.location}</p>
-        <Button className="mt-4 w-full" onClick={() => setShowModal(true)}>
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className="event-card flex max-w-sm bg-gray-900 text-white rounded-lg shadow-lg p-6 transition-transform"
+      >
+        <h3 className="text-lg font-bold text-gray-200 mb-2">{event.name}</h3>
+        <p className="text-gray-400 text-sm">{event.venue}</p>
+        <p className="text-gray-300 text-md font-semibold mt-2">{event.price}</p>
+
+        <Button
+          className="button mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"
+          onClick={() => setShowModal(true)}
+        >
           Get Tickets
         </Button>
-      </Card>
+      </motion.div>
+
       {showModal && <EventModal event={event} onClose={() => setShowModal(false)} />}
     </>
   );
