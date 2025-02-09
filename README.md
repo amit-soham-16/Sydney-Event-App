@@ -16,6 +16,17 @@ The Sydney Events App is a web application that automatically scrapes event data
 - **Frontend**: React.js, HTML, CSS, JavaScript.
 - **Database**: MySQL to store event data.
 - **Scheduler**: A task scheduler (e.g., cron jobs) to run scraping script every 24 hours.
+## Screenshots
+
+![Screenshot 2025-02-09 223835](https://github.com/user-attachments/assets/607f76ec-6b59-4d01-bb1f-c2e94bea46c3)
+
+![Screenshot 2025-02-09 223856](https://github.com/user-attachments/assets/ed363dc2-814e-4fc0-8327-eceecac095b4)
+
+![Screenshot 2025-02-09 223908](https://github.com/user-attachments/assets/6644b369-fbb7-405c-9b37-6bc76e035939)
+
+![Screenshot 2025-02-09 223927](https://github.com/user-attachments/assets/9ed74884-9673-4f99-800c-ee1ba0892288)
+
+![Screenshot 2025-02-09 224010](https://github.com/user-attachments/assets/7695e33c-cb76-4648-a515-20474b5ca109)
 
 ## Requirements
 1. **Java 8+** (For Spring Boot backend)
