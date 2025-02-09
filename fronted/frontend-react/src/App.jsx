@@ -1,25 +1,37 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import EventCard from "./components/EventCard";
-import { useEffect, useState } from "react";
+import AboutSection from "./components/AboutSection";
+import Footer from "./components/Footer"; 
+import "./App.css";
 
 const App = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/events") // Replace with your Spring Boot API endpoint
+    fetch("http://localhost:8080/api/events") 
       .then((response) => response.json())
-      .then((data) => setEvents(data));
+      .then((data) => setEvents(data))
+      .catch((error) => console.error("Error fetching events:", error));
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-4xl font-bold text-center mb-8">Sydney Events</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {events.map((event) => (
-          <EventCard key={event.id} event={event} />
-        ))}
+    <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
+      <h1 className="sydney-title">Sydney Events</h1>
+
+      {/* Centered Event Cards Grid */}
+      <div className="flex justify-center w-full">
+        <div className="event-grid">
+          {events.slice(0, 8).map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
+        </div>
       </div>
+
+      {/* About Section */}
+      <AboutSection />
+
+      {/* Footer Component */}
+      <Footer />
     </div>
   );
 };
