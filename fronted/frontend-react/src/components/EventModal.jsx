@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { Card } from './ui/Card';
-import { Button } from './ui/Button';
-
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "./ui/Button";
 
 const EventModal = ({ event, onClose }) => {
   const [email, setEmail] = useState("");
@@ -17,21 +15,32 @@ const EventModal = ({ event, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-xl shadow-xl">
-        <h2 className="text-2xl font-bold mb-4">Get Tickets for {event.title}</h2>
+    <div className="modal-overlay">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.9 }}
+        className="modal-content"
+      >
+        <h2 className="modal-title">Get Tickets for {event.title}</h2>
+        <p className="modal-subtitle">Enter your email to proceed:</p>
+
         <input
           type="email"
           placeholder="Enter your email"
-          className="w-full border p-2 rounded-lg mb-4"
+          className="modal-input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Button className="w-full" onClick={handleSubmit}>
+
+        <Button className="modal-button" onClick={handleSubmit}>
           Proceed
         </Button>
-        <button className="mt-2 text-sm text-gray-500" onClick={onClose}>Cancel</button>
-      </div>
+
+        <button className="modal-cancel" onClick={onClose}>
+          Cancel
+        </button>
+      </motion.div>
     </div>
   );
 };
